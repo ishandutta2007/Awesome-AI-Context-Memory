@@ -1,217 +1,135 @@
-# Awesome-AI-Context-Memory
-
-# Awesome-AI-Context-Memory
-
-## Top AI Context Memory Ecosystem
-
-
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-
-*Focused on Persistent Memory, Context Window Optimization & Session Continuity for AI Agents*  
-
-**Last updated: October 2026**
-
-
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **AI Context & Memory**. These tools give AI agents the ability to remember user preferences, retain session state, and optimize context windows—preventing "context rot" where models degrade under the weight of accumulated history, tool outputs, and noise.
-
-
-
-**Examples** include LangSmith, GitHub Copilot Enterprise, Mem0, Zep, Langfuse, Arize Phoenix, Pinecone, Weaviate, Qdrant, and Chroma (the category leaders).
-
-
-
-**Open-source emphasis**: This section is heavily expanded with every major active project for self-hosting, session persistence, and open memory layers—ideal for AI engineers, platform teams, and developers seeking transparent, vendor-independent agent memory infrastructure.
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
-
-## Table of Contents
-
-- [SaaS/Hosted Platforms](#saas-hosted-platforms)
-
-- [Open-Source GitHub Projects](#open-source-github-projects)
-
-- [How to Contribute](#how-to-contribute)
-
-- [Disclaimer](#disclaimer)
-
-
-
-## SaaS/Hosted Platforms
-
-
-
-- **[Mem0 Platform](https://mem0.ai/)**  
-
-  Managed memory layer for AI agents with **+26% accuracy over OpenAI Memory** on the LOCOMO benchmark, **91% faster responses**, and **90% fewer tokens** than full-context approaches . Features **multi-level memory** (User, Session, Agent state), **entity linking** across memories, **multi-signal retrieval** (semantic, BM25 keyword, entity matching), and **temporal reasoning** for queries about current state, past events, and upcoming plans . Hosted platform for zero-ops production use.
-
-
-
-- **[Zep Cloud](https://www.getzep.com/)**  
-
-  Managed agent memory platform with **Fact Extraction** (automatically build fact tables from conversations), **Dialog Classification** (classify chat dialog for intent and emotion), and **Structured Data Extraction** (extract business data using schema you define) . Persists and recalls chat histories, automatically generates summaries, and embeds messages for relevant context retrieval—all asynchronously . Agent plugins for Claude Code, Codex, and Cursor available .
-
-
-
-- **[LangSmith](https://smith.langchain.com/)**  
-
-  LangChain's observability and evaluation platform with detailed tracing of every LLM call, chain execution, and agent step—showing inputs, outputs, latency, token usage, and cost. **Free Developer plan** (1 seat, 5k base traces/month), **Plus at $39/seat/month** .
-
-
-
-- **[GitHub Copilot Enterprise](https://github.com/features/copilot)**  
-
-  Enterprise AI coding assistant with repository-wide context awareness, custom knowledge bases, and organizational memory.
-
-
-
-- **[Langfuse](https://langfuse.com/)**  
-
-  Open-source LLM engineering platform with tracing, evaluations, prompt management, and datasets. **35,000+ GitHub stars**. Self-hostable. **Acquired by ClickHouse in January 2026 with commitment to keep it open source** .
-
-
-
-- **[Arize Phoenix](https://phoenix.arize.com/)**  
-
-  Open-source LLM observability platform built on OpenTelemetry and OpenInference. **2.5M+ monthly downloads**, **10,800+ GitHub stars**. Strong RAG debugging with nested spans .
-
-
-
-- **[Pinecone](https://www.pinecone.io/)**  
-
-  Managed vector database for AI applications. Features serverless architecture, metadata filtering, and hybrid search.
-
-
-
-- **[Weaviate](https://weaviate.io/)**  
-
-  Open-source vector database with hybrid search and automatic vectorization modules.
-
-
-
-- **[Qdrant](https://qdrant.tech/)**  
-
-  Rust-based vector search engine with filtered ANN and payload filtering.
-
-
-
-- **[Chroma](https://www.trychroma.com/)**  
-
-  Developer-favorite embedding database for local development and prototyping.
-
-
-
-## Open-Source GitHub Projects
-
-
-
-- **[context-mode](https://github.com/mksglu/context-mode)**  
-
-  **The most comprehensive open-source context optimization framework for AI coding agents** (23k GitHub stars, 2k forks) . **98% reduction** in tool output through sandboxed code execution—agents write code that processes data inside the sandbox, and only results enter the context window . Features **session persistence across compaction**: PreCompact hook builds a priority-tiered XML snapshot (≤2 KB) with critical state (active files, tasks, rules, decisions), stored in SQLite and restored at SessionStart . **17 platforms supported** including Claude Code, Gemini CLI, VS Code Copilot, OpenCode, Codex CLI, Cursor, and more . **Think in Code** reports show 99.4% context savings—536 KB processed, only 3.2 KB entered context window .
-
-
-
-- **[Mem0](https://github.com/mem0ai/mem0)**  
-
-  **Universal memory layer for AI Agents** (open-source, Apache-2.0) . **92.5 on LoCoMo** (+21 points over previous algorithm), **94.4 on LongMemEval** (+27 points), **64.1 on BEAM (1M)** for production-scale memory at 1M tokens . Features **multi-level memory** (User, Session, Agent), **entity linking** across memories, **multi-signal retrieval** (semantic + BM25 + entity), **temporal reasoning** for time-aware queries, and **MCP support** for Claude Code, Cursor, and other agents . Library (`pip install mem0ai`), self-hosted server (`docker compose up`), or managed cloud .
-
-
-
-- **[Zep Community Edition (Legacy)](https://github.com/getzep/zep)**  
-
-  **Deprecated but historically significant**—the original open-source Zep Community Edition has been moved to `legacy/` and is no longer supported . **Zep Cloud is now the managed offering**. The `zep-js` SDK on the `oss` branch remains compatible with the open-source edition for those maintaining legacy deployments .
-
-
-
-- **[engrim](https://pypi.org/project/engrim/)**  
-
-  **Cross-platform persistent memory for AI coding agents** (open-source). Features **hybrid ranking** (semantic + keyword), **provenance tracking** (`origin_agent` field records which agent created each memory), and **MCP server** with core tools: `engrim_recall`, `engrim_add`, `engrim_context`, `engrim_review` . **Works across Google Antigravity, Claude Code, Cursor, Windsurf, Codex CLI, and GitHub Copilot CLI** . `engrim doctor` runs comprehensive health diagnostics across SQLite, semantic engine, and hooks . **Token efficiency**: 90% reduction at 100 sessions (~6,960 tokens → ~670 tokens) .
-
-
-
-- **[graymatter](https://github.com/angelnicolasc/graymatter)**  
-
-  **Memory and knowledge graph layer for AI coding agents** (open-source, Go). Features **seven memory tools** live via MCP, **knowledge graph rendering** (`graymatter kg render --out kg-graph.html`), and **consolidation** for long-term memory management . **Token efficiency**: 71% reduction at 30 sessions, 90% reduction at 100 sessions . Pre-built binaries for Linux, macOS, and Windows. Homebrew, Scoop, and Nix packages available.
-
-
-
-- **[TurboAgent](https://pypi.org/project/turboagent-ai/)**  
-
-  **TurboQuant-powered agentic AI framework for long-context LLMs on consumer hardware** (open-source, MIT). Brings Google Research's **TurboQuant KV-cache compression** to open-source LLMs—**6x+ memory reduction** and **up to 8x attention speedup** with zero measurable accuracy loss . Enables **32k-1M+ effective context on a single RTX 4090**. Features **hardware-aware auto-tuning**, **persistent multi-turn memory**, **RAG with vector-search**, and **multi-agent swarms** .
-
-
-
-- **[montycat](https://pub.dev/packages/montycat)**  
-
-  **Self-hosted NoSQL + vector database in one Rust-powered engine** (open-source). Positioned as **Pinecone/Weaviate/Chroma/Qdrant alternative** with a NoSQL store built in . Features **on-device embeddings** (no OpenAI bill, no data egress), **hybrid search** (semantic kNN + BM25 keyword + reciprocal-rank fusion), and **bring-your-own-vectors** for migrations from OpenAI, Pinecone, Qdrant, or Milvus pipelines . Native Dart & Flutter support for mobile, web, and desktop .
-
-
-
-### Additional Strong Open-Source Options
-
-
-
-- **[LangChain Deep Agents](https://github.com/langchain-ai/deepagents)** — Open-source agent harness with **middleware for context engineering**: offloading (large tool results to filesystem), summarization (condensing older messages), skills (load when relevant), subagents (noisy work in separate context), and long-term memory (persist across conversations) .
-
-- **[OpenMemory MCP](https://github.com/mem0ai/mem0)** — Local and secure memory management via MCP, part of the Mem0 ecosystem .
-
-- **[Zep Cloud Integrations](https://github.com/getzep/zep)** — Framework integrations for Google ADK, Microsoft Agent Framework, AutoGen, CrewAI, LangGraph, LiveKit, Pydantic AI, Strands Agents, and TypeScript frameworks (Google ADK, Mastra, Vercel AI SDK) .
-
-- Community **n8n** workflows for memory alert routing and agent session monitoring.
-
-
-
-**Frameworks for building custom systems**: Combine **context-mode** for context window optimization and session persistence with **Mem0** for long-term agent memory, **Zep Cloud** for fact extraction and dialog classification, **montycat** for self-hosted vector storage, and **PostgreSQL/SQLite** for persistence—creating a fully self-hosted, enterprise-grade AI context and memory platform.
-
-
-
-## How to Contribute
-
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- AI memory systems handling conversation history and user preferences must comply with data protection regulations (GDPR, CCPA, etc.) and provide appropriate retention controls.
-
-- **Context rot is the fundamental problem.** As agents take on longer tasks, they accumulate more information—instructions, tool results, files—until context windows overflow and reasoning accuracy degrades . **Context engineering techniques fall into two categories**: preventing unnecessary information from entering the context window, and managing/filtering what's already there .
-
-- **Open-source context optimization is mature and production-ready.** context-mode achieves **98% reduction in tool output** through sandboxed code execution . Mem0 delivers **92.5 on LoCoMO** and **94.4 on LongMemEval** with open-source code and reproducible evaluations . **These are genuine alternatives to commercial platforms.**
-
-- **Session persistence across compaction is critical for coding agents.** When context windows compact, agents lose working state—active files, tasks, decisions, and user corrections. context-mode's PreCompact hook builds a priority-tiered snapshot (≤2 KB) with critical state preserved and lower-priority events dropped first . **Without session persistence, agents ask "what were we doing?" after every compaction.**
-
-- **Token efficiency compounds over sessions.** engrim demonstrates **90% reduction at 100 sessions** (~6,960 tokens → ~670 tokens) . GrayMatter shows **71% reduction at 30 sessions** . **Every session without memory management adds permanent context weight.**
-
-- Self-hosted open-source solutions require proper security hardening, memory pruning policies, and ongoing maintenance. **Agent memory is a privacy-sensitive data store**—access controls and retention limits are essential.
-
-
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome AI Context and Memory Banner" width="100%" />
+</p>
+
+# Awesome AI Context & Memory 🧠⚡
+
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-AI-Context-Memory/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-AI-Context-Memory?style=social" alt="GitHub Stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-AI-Context-Memory/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-AI-Context-Memory?style=social" alt="GitHub Forks" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-AI-Context-Memory/issues"><img src="https://img.shields.io/github/issues/ishandutta2007/Awesome-AI-Context-Memory" alt="Open Issues" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-AI-Context-Memory/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
 
 ---
 
+## 🌟 Overview & SEO Summary 🔍
 
+> **A curated, authoritative directory of SaaS platforms, vector stores, long-term memory systems, and open-source GitHub projects designed for Autonomous AI Agents, LLM Context Window Optimization, Session Continuity, and Agentic Workflow Architecture.**
 
-**Made for AI engineers, platform teams, and developers building transparent agent memory solutions.**  
+Modern LLMs face severe operational challenges known as **"context rot"** and **attention saturation** when executing multi-turn tool loops, processing vast codebases, or sustaining long conversations. The **Awesome AI Context & Memory** ecosystem aggregates leading engineering solutions across:
 
-Let's make AI Context & Memory more open, data-driven, and context-efficient.
+- 🧠 **Persistent Agent Memory:** Entity extraction, associative graph memory, temporal reasoning, and multi-tier user/session state.
+- 🗜️ **Context Window Optimization:** Sandboxed execution, prompt compaction, KV-cache compression, and semantic offloading.
+- 🔍 **Vector Databases & Hybrid Retrieval:** High-performance dense kNN, sparse BM25, and metadata-filtered search engines.
+- 📊 **LLM Observability & Tracing:** Full-trace lifecycle inspection, latency tracking, token spend auditing, and evaluation datasets.
+
+---
+
+## 📑 Table of Contents
+- [📊 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [🏢 SaaS & Hosted Platforms](#-saas--hosted-platforms)
+- [💻 Open-Source GitHub Projects](#-open-source-github-projects)
+- [🤝 How to Contribute](#-how-to-contribute)
+- [☕ Support](#-support)
+- [📈 Star History](#-star-history)
+- [⚖️ Disclaimer](#-disclaimer)
+
+---
+
+## 📊 Sector Overview & Market Dynamics
+
+The AI Context and Memory ecosystem represents a foundational layer of the agentic AI stack, currently spanning dedicated vector retrieval engines and agent memory layers:
+
+- **Market Size & Trajectory:** The global Vector Database and AI memory software infrastructure market is estimated at **$2.5B–$3.1B in 2025–2026** and projected to surge past **$7.3B by 2030 (23.7% CAGR)**, fueled by exponential enterprise adoption of autonomous reasoning agents, agentic RAG, and long-horizon tool execution.
+- **Market Dynamics & Fragmentation:** The sector is **moderately fragmented yet rapidly consolidating**, transitioning from early exploratory startups toward high-gravity hubs. While hyperscalers and established database vendors (Microsoft Azure, ClickHouse, Dynatrace) are actively acquiring or integrating memory layers, pure-play specialized innovators continue driving rapid advancements in open-source context compaction, KV-cache pruning, and associative graph persistence.
+
+---
+
+## 🏢 SaaS & Hosted Platforms
+
+| Product | Valuation / Revenue | Starting Paid Price | Free Tier Limits | Key Highlights & Architecture |
+| :--- | :--- | :--- | :--- | :--- |
+| **[GitHub Copilot Enterprise](https://github.com/features/copilot)** | **>$7.5B valuation implied** (Microsoft acquired GitHub for $7.5B; Copilot revenue now exceeds pre-acquisition GitHub) | **$39 / user / month** | **30-day trial via Enterprise Cloud** (Copilot seats require enterprise evaluation/pilot program agreement) | Enterprise AI coding assistant with repository-wide context awareness, custom organization knowledge bases, and team workflow memory. |
+| **[LangSmith](https://smith.langchain.com/)** | **$1.25B valuation** ($125M Series B led by IVP; unicorn status) | **$39 / seat / month** (Plus plan, includes 10,000 base traces/mo) | **Free forever Developer Plan**: 1 seat, **5,000 base traces / month** hard cap, 14-day data retention | LangChain's observability and evaluation platform with detailed tracing of LLM chains, agent execution graphs, latency, and token cost. |
+| **[Arize Phoenix / AX](https://phoenix.arize.com/)** | **$915M valuation** (Acquired by Dynatrace in Aug 2026 for $915M cash & stock) | **$50 / month** (AX Pro plan, 50,000 spans/mo, 10 GB storage) | **AX Free Plan**: **25,000 spans / month**, **1 GB storage**, 15-day retention, unlimited human annotations | OpenTelemetry-native LLM evaluation, span-level RAG debugging, and tracing engine with self-hosted open-source or fully managed cloud. |
+| **[Pinecone](https://www.pinecone.io/)** | **$750M valuation** ($100M Series B led by a16z; $130M+ total funding) | **$20 / month** (Builder tier, 10 GB storage, 5M WUs, 2M RUs) | **Starter Free Plan**: **2 GB storage (~300,000 vectors)**, 2M Write Units/mo, 1M Read Units/mo, up to 5 serverless indexes | Production-grade managed serverless vector database engineered for sub-millisecond retrieval, hybrid dense/sparse search, and enterprise metadata filtering. |
+| **[Qdrant Cloud](https://qdrant.tech/)** | **~$220M valuation** ($28M Series A led by Spark Capital; $50M Series B) | **~$25 / month** (Standard consumption tier; metered per vCPU/RAM hour) | **Free Forever Cluster**: **1 GB RAM (~1,000,000 vectors with quantization)**, 0.5 vCPU, 4 GB storage, single-node | Rust-powered vector database engine supporting payload filtering, on-disk payload storage, and quantization. |
+| **[Weaviate Cloud](https://weaviate.io/)** | **$200M valuation** ($50M Series B led by Index Ventures) | **$45 / month** (Flex pay-as-you-go minimum tier) | **Free Forever Sandbox**: **100,000 objects/vectors**, 1 GB RAM, 10 GB disk, 2,000 embedding reqs/day, 1,000 agent queries/mo | Modular AI-native vector database offering native vectorizer integrations, hybrid vector-BM25 search, and multi-tenant memory clustering. |
+| **[Chroma Cloud](https://www.trychroma.com/)** | **$75M valuation** ($18M seed led by Quiet Capital) | **Usage-based post-credits** ($2.50/GiB written, $0.33/GiB storage, $0.0075/TiB queried) | **Starter Free Plan**: **$5 in free usage credits**, up to 10 databases, and up to 10 team member seats | Developer-first AI database optimized for local python embedding workflows, transitionable to serverless distributed cloud. |
+| **[Langfuse](https://langfuse.com/)** | **Part of ClickHouse** (Acquired by ClickHouse Jan 2026; ClickHouse valued at $15B Series D) | **$29 / month** (Core plan, includes 100,000 units/mo, unlimited seats) | **Hobby Free Plan**: **50,000 units / month**, 30-day retention, up to 2 team members | Open-source LLM engineering and observability platform with prompt management, playground evaluators, and session context tracking. |
+| **[Mem0 Platform](https://mem0.ai/)** | **$24M funding** (Series A led by Basis Set Ventures, Peak XV, Y Combinator) | **$19 / month** (Starter plan, 50,000 memory adds & 5,000 retrievals/mo) | **Hobby Free Plan**: **10,000 memory add requests / month** and **1,000 retrieval requests / month** | Managed adaptive memory layer with multi-level scoping (User, Session, Agent), temporal graph reasoning, and LOCOMO-validated accuracy. |
+| **[Zep Cloud](https://www.getzep.com/)** | **Seed-backed** (Y Combinator, Engineering Capital, Root Ventures) | **$125 / month** (Flex plan, 50,000 credits/mo, 600 req/min) | **Free Prototyping Plan**: **10,000 credits / month**, unmetered raw memory recall & user entities | Managed agent memory infrastructure featuring automated conversation fact extraction, dialog classification, and dynamic knowledge graph generation. |
+
+---
+
+## 💻 Open-Source GitHub Projects
+
+Curated list of open-source frameworks, memory engines, and context optimization projects sorted by GitHub star count (descending):
+
+| Project | Stars | License | Description & Context Architecture |
+| :--- | :--- | :--- | :--- |
+| **[LangChain](https://github.com/langchain-ai/langchain)** | [![GitHub stars](https://img.shields.io/github/stars/langchain-ai/langchain?style=social&color=white)](https://github.com/langchain-ai/langchain/stargazers) | MIT | **147,000+ stars**. Foundational framework for developing applications powered by language models, including modular conversation memory stores, context buffering, and tool integration. |
+| **[RAGFlow](https://github.com/infiniflow/ragflow)** | [![GitHub stars](https://img.shields.io/github/stars/infiniflow/ragflow?style=social&color=white)](https://github.com/infiniflow/ragflow/stargazers) | Apache-2.0 | **92,000+ stars**. Open-source RAG engine based on deep document understanding, grounded citation extraction, and structured context window hydration for complex agent queries. |
+| **[Mem0](https://github.com/mem0ai/mem0)** | [![GitHub stars](https://img.shields.io/github/stars/mem0ai/mem0?style=social&color=white)](https://github.com/mem0ai/mem0/stargazers) | Apache-2.0 | **67,000+ stars**. The memory layer for personalized AI. Delivers 92.5 on LoCoMo benchmarks (+21 over baseline), entity linking, multi-signal retrieval (semantic + BM25), and MCP server integration. |
+| **[AutoGen](https://github.com/microsoft/autogen)** | [![GitHub stars](https://img.shields.io/github/stars/microsoft/autogen?style=social&color=white)](https://github.com/microsoft/autogen/stargazers) | MIT | **61,000+ stars**. Microsoft's multi-agent conversational framework featuring conversational memory management, human-in-the-loop intervention, and modular context-partitioned agent swarms. |
+| **[CrewAI](https://github.com/crewAIInc/crewAI)** | [![GitHub stars](https://img.shields.io/github/stars/crewAIInc/crewAI?style=social&color=white)](https://github.com/crewAIInc/crewAI/stargazers) | MIT | **59,000+ stars**. Framework for orchestrating role-playing autonomous AI agents, equipped with native short-term, long-term, and entity memory systems. |
+| **[LlamaIndex](https://github.com/run-llama/llama_index)** | [![GitHub stars](https://img.shields.io/github/stars/run-llama/llama_index?style=social&color=white)](https://github.com/run-llama/llama_index/stargazers) | MIT | **52,000+ stars**. Data framework for LLM applications providing hierarchical indexing, query engines, and conversation memory managers for structured and unstructured context. |
+| **[Milvus](https://github.com/milvus-io/milvus)** | [![GitHub stars](https://img.shields.io/github/stars/milvus-io/milvus?style=social&color=white)](https://github.com/milvus-io/milvus/stargazers) | Apache-2.0 | **46,000+ stars**. Cloud-native open-source vector database built for massive-scale similarity search, powering long-term enterprise memory layers across billions of vectors. |
+| **[LangGraph](https://github.com/langchain-ai/langgraph)** | [![GitHub stars](https://img.shields.io/github/stars/langchain-ai/langgraph?style=social&color=white)](https://github.com/langchain-ai/langgraph/stargazers) | MIT | **43,000+ stars**. Graph-based orchestration library with built-in persistent checkpointing, time-travel debugging, and multi-agent memory state management. |
+| **[Agno (formerly Phidata)](https://github.com/phidatahq/phidata)** | [![GitHub stars](https://img.shields.io/github/stars/phidatahq/phidata?style=social&color=white)](https://github.com/phidatahq/phidata/stargazers) | MIT | **42,000+ stars**. Lightweight multi-modal agent framework with built-in PostgreSQL session storage, vector database memory, and instant contextual recall. |
+| **[Langfuse](https://github.com/langfuse/langfuse)** | [![GitHub stars](https://img.shields.io/github/stars/langfuse/langfuse?style=social&color=white)](https://github.com/langfuse/langfuse/stargazers) | MIT | **35,000+ stars**. Open-source LLM engineering platform offering end-to-end tracing, evaluations, prompt versioning, and context inspection. |
+| **[Qdrant Engine](https://github.com/qdrant/qdrant)** | [![GitHub stars](https://img.shields.io/github/stars/qdrant/qdrant?style=social&color=white)](https://github.com/qdrant/qdrant/stargazers) | Apache-2.0 | **35,000+ stars**. High-performance Rust vector search engine with payload filtering, memory-efficient quantization, and scalable distributed indexing. |
+| **[DeepAgents](https://github.com/langchain-ai/deepagents)** | [![GitHub stars](https://img.shields.io/github/stars/langchain-ai/deepagents?style=social&color=white)](https://github.com/langchain-ai/deepagents/stargazers) | MIT | **30,000+ stars**. Agent harness with context engineering middleware: tool result offloading, automatic compaction, skill injection, and long-term memory across sessions. |
+| **[context-mode](https://github.com/mksglu/context-mode)** | [![GitHub stars](https://img.shields.io/github/stars/mksglu/context-mode?style=social&color=white)](https://github.com/mksglu/context-mode/stargazers) | Apache-2.0 | **29,000+ stars**. Open-source context optimization framework for coding agents. Delivers **98% tool output reduction** via sandboxing, SQLite snapshots, and pre-compaction state persistence. |
+| **[Chroma](https://github.com/chroma-core/chroma)** | [![GitHub stars](https://img.shields.io/github/stars/chroma-core/chroma?style=social&color=white)](https://github.com/chroma-core/chroma/stargazers) | Apache-2.0 | **29,000+ stars**. Open-source embedding database for AI application prototyping, seamless local collection storage, and agent document filtering. |
+| **[Letta (MemGPT)](https://github.com/letta-ai/letta)** | [![GitHub stars](https://img.shields.io/github/stars/letta-ai/letta?style=social&color=white)](https://github.com/letta-ai/letta/stargazers) | Apache-2.0 | **25,000+ stars**. Memory-augmented LLM operating system inspired by OS paging. Manages working context (RAM) and archival storage (disk) to enable perpetual agent state. |
+| **[pgvector](https://github.com/pgvector/pgvector)** | [![GitHub stars](https://img.shields.io/github/stars/pgvector/pgvector?style=social&color=white)](https://github.com/pgvector/pgvector/stargazers) | PostgreSQL | **23,000+ stars**. Vector similarity search for PostgreSQL. Powers relational-plus-vector agent memory architectures without introducing a standalone database service. |
+| **[Anthropic Quickstarts](https://github.com/anthropics/anthropic-quickstarts)** | [![GitHub stars](https://img.shields.io/github/stars/anthropics/anthropic-quickstarts?style=social&color=white)](https://github.com/anthropics/anthropic-quickstarts/stargazers) | MIT | **18,000+ stars**. Official reference architectures including contextual retrieval, customer-facing memory patterns, and prompt caching implementations. |
+| **[Weaviate Engine](https://github.com/weaviate/weaviate)** | [![GitHub stars](https://img.shields.io/github/stars/weaviate/weaviate?style=social&color=white)](https://github.com/weaviate/weaviate/stargazers) | BSD-3-Clause | **16,000+ stars**. Open-source vector database supporting multi-modal vector search, automatic inverted indexing, and hybrid semantic retrieval. |
+| **[Arize Phoenix](https://github.com/Arize-ai/phoenix)** | [![GitHub stars](https://img.shields.io/github/stars/Arize-ai/phoenix?style=social&color=white)](https://github.com/Arize-ai/phoenix/stargazers) | Apache-2.0 | **11,000+ stars**. AI observability platform for tracing agent invocations, tracking hallucination evals, and pinpointing context retrieval errors. |
+| **[Zep Community (Legacy)](https://github.com/getzep/zep)** | [![GitHub stars](https://img.shields.io/github/stars/getzep/zep?style=social&color=white)](https://github.com/getzep/zep/stargazers) | Apache-2.0 | **4,900+ stars**. Historical open-source fast memory store for conversational AI agents. (Legacy engine archived; active development continues on Zep Cloud). |
+| **[graymatter](https://github.com/angelnicolasc/graymatter)** | [![GitHub stars](https://img.shields.io/github/stars/angelnicolasc/graymatter?style=social&color=white)](https://github.com/angelnicolasc/graymatter/stargazers) | MIT | **480+ stars**. Memory and knowledge graph layer written in Go for coding agents. Provides 7 MCP tools and visual graph inspection (`graymatter kg render`). |
+| **[engrim](https://pypi.org/project/engrim/)** | [![PyPI](https://img.shields.io/badge/PyPI-engrim-blue)](https://pypi.org/project/engrim/) | MIT | **Python Package**. Cross-platform persistent memory for coding assistants with provenance tracking, MCP server (`engrim_recall`, `engrim_add`), and 90% token reduction across 100 sessions. |
+| **[TurboAgent](https://pypi.org/project/turboagent-ai/)** | [![PyPI](https://img.shields.io/badge/PyPI-turboagent--ai-orange)](https://pypi.org/project/turboagent-ai/) | MIT | **Python Package**. Agentic framework utilizing TurboQuant KV-cache compression for long-context LLMs, unlocking 32k-1M+ effective context on consumer GPUs. |
+| **[montycat](https://pub.dev/packages/montycat)** | [![pub.dev](https://img.shields.io/badge/pub.dev-montycat-teal)](https://pub.dev/packages/montycat) | MIT | **Dart/Flutter Package**. Self-hosted Rust-powered NoSQL and vector store with on-device embeddings, reciprocal-rank fusion, and zero egress overhead. |
+
+---
+
+## 🤝 How to Contribute
+
+We welcome contributions from researchers, platform architects, and open-source maintainers! 🚀
+
+1. 🍴 **Fork** the repository.
+2. 🌿 Create a feature branch: `git checkout -b feature/add-new-tool`.
+3. 📝 Add or update entries in [README.md](file:///C:/Users/ishan/Documents/Projects/Awesome-AI-Context-Memory/README.md).
+   - Ensure SaaS entries include verified pricing and free tier specs.
+   - Ensure open-source additions include clean architecture summaries, social star badges, and links to official repositories.
+4. 📬 Submit a Pull Request with a clear description of why the tool belongs in the list.
+
+---
+
+## ☕ Support
+
+If you found this curated list helpful for building your AI systems or agent infrastructure:
+- ⭐ **Star** this repository to help other developers discover it!
+- 🍴 **Fork** and share it with your engineering team and community.
+- ☕ **Sponsor & Buy a Coffee:** You can support the ongoing curation and maintenance of this list via the [GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007). Your support is greatly appreciated! ❤️
+
+---
+
+## 📈 Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-AI-Context-Memory&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-AI-Context-Memory&type=date&legend=top-left)
+
+---
+
+## ⚖️ Disclaimer
+
+- This is an **independently maintained, community-curated** catalog — inclusion does not represent an endorsement or commercial partnership.
+- **Privacy & Compliance:** Persistent agent memory stores ingest dialogue, codebase snippets, and user actions. Implement proper retention policies, encryption at rest, and access controls compliant with regulations such as GDPR, HIPAA, and CCPA.
+- **Context Rot Prevention:** Mitigating context window pollution requires combining proactive prevention (sandboxing code, offloading large tool payloads) and adaptive filtering (KV-cache quantization, associative entity graphs).
+- Product pricing and free tier quotas are subject to vendor updates. Always check official vendor portals for live contractual details.
