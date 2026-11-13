@@ -96,6 +96,7 @@ Curated list of open-source frameworks, memory engines, and context optimization
 | **[engrim](https://pypi.org/project/engrim/)** | [![PyPI](https://img.shields.io/badge/PyPI-engrim-blue)](https://pypi.org/project/engrim/) | MIT | **Python Package**. Cross-platform persistent memory for coding assistants with provenance tracking, MCP server (`engrim_recall`, `engrim_add`), and 90% token reduction across 100 sessions. |
 | **[TurboAgent](https://pypi.org/project/turboagent-ai/)** | [![PyPI](https://img.shields.io/badge/PyPI-turboagent--ai-orange)](https://pypi.org/project/turboagent-ai/) | MIT | **Python Package**. Agentic framework utilizing TurboQuant KV-cache compression for long-context LLMs, unlocking 32k-1M+ effective context on consumer GPUs. |
 | **[montycat](https://pub.dev/packages/montycat)** | [![pub.dev](https://img.shields.io/badge/pub.dev-montycat-teal)](https://pub.dev/packages/montycat) | MIT | **Dart/Flutter Package**. Self-hosted Rust-powered NoSQL and vector store with on-device embeddings, reciprocal-rank fusion, and zero egress overhead. |
+| **[Cloud Alter Ego](https://github.com/SebastiaanBoon/cloud-alter-ego)** | [![GitHub_Stars](https://img.shields.io/github/stars/SebastiaanBoon/cloud-alter-ego?style=social&color=white)](https://github.com/SebastiaanBoon/cloud-alter-ego/stargazers) | MIT | Template for the Cloud Alter Ego remote MCP connector. Gives Claude Code and Codex shared memory, working rules and auto-journaling as plain Markdown files synced through Git. |
 
 ---
 
